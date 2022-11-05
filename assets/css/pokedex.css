@@ -78,6 +78,10 @@
     background-color: #f9aec7;
 }
 
+.modal{
+
+}
+
 .pokemon {
     display: flex;
     flex-direction: column;
@@ -144,6 +148,13 @@
     background-color: #6c79db;
     border: none;
     border-radius: 1rem;
+}
+
+button {
+    font-size: 13px;
+    margin-top: 30px;
+    border-radius: 7px;
+    background-color: #;
 }
 
 @media screen and (min-width: 380px) {
