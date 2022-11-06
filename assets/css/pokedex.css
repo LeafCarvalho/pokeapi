@@ -78,10 +78,6 @@
     background-color: #f9aec7;
 }
 
-.modal{
-
-}
-
 .pokemon {
     display: flex;
     flex-direction: column;
@@ -150,11 +146,80 @@
     border-radius: 1rem;
 }
 
-button {
+#button {
     font-size: 13px;
     margin-top: 30px;
     border-radius: 7px;
-    background-color: #;
+    background-color: #902190;
+}
+
+.modal-container {
+    display: none;
+    border-radius: 10px;
+    text-align: justify;
+}
+
+.modal{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.active {
+    position: absolute;
+    backdrop-filter: blur(10px);
+    min-height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.active .modal {
+    animation: .4s;
+}
+
+@keyframes modal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btns button {
+    font-size: medium;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btnOK {
+    background-color: #0000FF!important;
+}
+.btnOK:hover {
+    color: #c8ffd0;
+    background-color: #9696f19a!important;
+}
+
+.btnClose {
+    background-color: #990000!important;
+}
+.btnClose:hover {
+    background-color: #ff0000!important;
 }
 
 @media screen and (min-width: 380px) {
@@ -166,6 +231,14 @@ button {
 @media screen and (min-width: 576px) {
     .pokemons {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .modal {
+        padding: 10px;
+        width: 80%;
+    }
+    span, .btns button {
+        font-size: button;
     }
 }
 
