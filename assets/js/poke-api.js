@@ -35,7 +35,7 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
 }
 
 function convertPokeApiDetailToPokemonCompleto(pokeDetail) {
-    debugger
+
     
     const pokemon = new Pokemon()
     pokemon.number = pokeDetail.id
