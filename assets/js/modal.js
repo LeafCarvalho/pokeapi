@@ -27,7 +27,12 @@ const convertPokemonToHtml = pokemon => {
     <img class="imgPokemon"
       src="${pokemon.photo}"
       alt="${pokemon.name}">
+      <div id="Arrows">
+      <i id="Prev" class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
+      <i id="Next" class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
+    </div>
     <div class="tabsInfo">
+    
     
       <!-- Tab links -->
       <div class="tab">
@@ -141,7 +146,9 @@ const convertPokemonToHtml = pokemon => {
         </ol>
             
         </div>
+
     </div>
+
     
 </div>
   
@@ -165,6 +172,13 @@ function openModal(id) {
 function closeModal() {
   modal.style.display = "none";
 }
+
+// When the user type the key "Esc"
+document.addEventListener('keyup', (e) => {
+    if(e.keyCode == 27) {
+      closeModal()
+    }
+})
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
