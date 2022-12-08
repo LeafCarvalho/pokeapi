@@ -8,4 +8,4 @@
  Reponsividade, Consumo de API, estruturação de código.
  
  # Pendências:
- [] Adicionar navegação por setas no modal para que o usuário possa ter uma melhor experiência.
+- [ ] Adicionar navegação por setas no modal para que o usuário possa ter uma melhor experiência.
