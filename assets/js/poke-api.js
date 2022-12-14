@@ -114,7 +114,4 @@ pokeApi.getPokemonCompleto = (id) => {
         .then((response) => response.json())
         .then(convertPokeApiDetailToPokemonCompleto)   
         .then((pokemon) => pokeApi.getPokemonSpecies(pokemon))
-        
-        
-
 }
