@@ -162,6 +162,7 @@ function openModal(id) {
   pokeApi.getPokemonCompleto(id).then((pokemon) => {
     const newHtml = convertPokemonToHtml(pokemon)
     modal.innerHTML = newHtml;
+    console.log(id)
     var defaultTab = document.getElementById("defaultTab");
     defaultTab.click();
   })
@@ -216,7 +217,7 @@ function openTab(evt, tabName) {
 
 }
 
-searchPokemon = offset
+let searchPokemon = 1
 
 const nextPokemon = () => {
   if(searchPokemon < maxRecords) {

@@ -216,7 +216,7 @@ function openTab(evt, tabName) {
 
 }
 
-searchPokemon = offset
+let searchPokemon = 1
 
 const nextPokemon = () => {
   if(searchPokemon < maxRecords) {
