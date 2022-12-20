@@ -11,7 +11,7 @@ const convertPokemonToHtml = pokemon => {
   
 
   return `
-      <div class="swiper modal_container ${pokemon.type}">
+      <div class="swiper ${pokemon.type}">
       <div>
           <span id="voltarBtn" class="close" onclick="closeModal()">&leftarrow;</span>
       </div>
@@ -27,8 +27,8 @@ const convertPokemonToHtml = pokemon => {
       <img class="imgPokemon"
         src="${pokemon.photo}"
         alt="${pokemon.name}">
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+        <button class="glider-prev" onclick="prevPokemon()"> < </button>
+        <button class="glider-next" onclick="nextPokemon()"> > </button>
       <div class="tabsInfo">
       
       
@@ -156,17 +156,14 @@ const convertPokemonToHtml = pokemon => {
 }
 
 function openModal(id) {
-
   modal.style.display = "block";
   pokeApi.getPokemonCompleto(id).then((pokemon) => {
-
     const newHtml = convertPokemonToHtml(pokemon)
     modal.innerHTML = newHtml;
-    const defaultTab = document.getElementById("defaultTab");
+    var defaultTab = document.getElementById("defaultTab");
     defaultTab.click();
   })
 }
-
 
 // When the user clicks on <span> (x), close the modal
 function closeModal() {
@@ -174,7 +171,7 @@ function closeModal() {
 }
 
 // When the user type the key "Esc"
-document.addEventListener('keyup', (e) => {
+window.addEventListener('keyup', (e) => {
     if(e.keyCode == 27) {
       closeModal()
     }
@@ -217,13 +214,18 @@ function openTab(evt, tabName) {
 
 }
 
-var swiper = new Swiper(".tabcontent", {
-  cssMode: true,
-  loop: true,
-  slidesPerView: 2,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  keyboard: true,
-});
+searchPokemon = offset
+
+const nextPokemon = () => {
+  if(searchPokemon < maxRecords) {
+    searchPokemon += 1;
+    return openModal(searchPokemon)
+  }
+}
+
+const prevPokemon = () => {
+  if(searchPokemon < maxRecords && searchPokemon > offset) {
+    searchPokemon -= 1;
+    return openModal(searchPokemon)
+  }
+}
