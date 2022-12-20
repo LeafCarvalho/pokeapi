@@ -23,14 +23,16 @@ const convertPokemonToHtml = pokemon => {
         <ol class="types">
           ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
         </ol>
+
       </div>
       <img class="imgPokemon"
         src="${pokemon.photo}"
         alt="${pokemon.name}">
-        <button class="glider-prev" onclick="prevPokemon()"> < </button>
-        <button class="glider-next" onclick="nextPokemon()"> > </button>
       <div class="tabsInfo">
-      
+      <div class="Arrows">
+      <button class="prev" onclick="prevPokemon()"> < </button>
+      <button class="next" onclick="nextPokemon()"> > </button>
+      </div>
       
         <!-- Tab links -->
         <div class="tab">

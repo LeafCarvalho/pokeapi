@@ -273,8 +273,21 @@
     }
 }
 
-.glider-next, .glider-prev {
-    width: 67%;
-    margin-top: 13rem;
-    max-height: 100%;
+.Arrows{
+    font-size: 2rem;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+}
+
+.prev, .next {
+    border: 1px dotted #555555;
+    background-color: #fff;
+    color: #6267ff;
+}
+
+.prev:hover, .next:hover {
+    background-color: #151515;
+    color: #94ffc1;
 }
