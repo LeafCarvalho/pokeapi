@@ -162,11 +162,11 @@ function openModal(id) {
   pokeApi.getPokemonCompleto(id).then((pokemon) => {
     const newHtml = convertPokemonToHtml(pokemon)
     modal.innerHTML = newHtml;
-    console.log(id)
     var defaultTab = document.getElementById("defaultTab");
     defaultTab.click();
   })
 }
+
 
 // When the user clicks on <span> (x), close the modal
 function closeModal() {
@@ -219,16 +219,16 @@ function openTab(evt, tabName) {
 
 let searchPokemon = 1
 
-const nextPokemon = () => {
-  if(searchPokemon < maxRecords) {
-    searchPokemon += 1;
+const prevPokemon = () => {
+  if(searchPokemon < maxRecords && searchPokemon > offset) {
+    searchPokemon -= 1;
     return openModal(searchPokemon)
   }
 }
 
-const prevPokemon = () => {
-  if(searchPokemon < maxRecords && searchPokemon > offset) {
-    searchPokemon -= 1;
+const nextPokemon = () => {
+  if(searchPokemon < maxRecords) {
+    searchPokemon += 1;
     return openModal(searchPokemon)
   }
 }
