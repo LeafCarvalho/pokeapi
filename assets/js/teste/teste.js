@@ -27,8 +27,8 @@ const convertPokemonToHtml = pokemon => {
       <img class="imgPokemon"
         src="${pokemon.photo}"
         alt="${pokemon.name}">
-        <button class="glider-prev"> < </button>
-        <button class="glider-next" onclick="loadPokemon()"> > </button>
+        <button class="glider-prev" onclick="prevPokemon()"> < </button>
+        <button class="glider-next" onclick="nextPokemon()"> > </button>
       <div class="tabsInfo">
       
       
@@ -214,10 +214,18 @@ function openTab(evt, tabName) {
 
 }
 
-const loadPokemon = () => {
-  let next = document.querySelector('.glider-next')
+searchPokemon = offset
 
-  for(i = 1; i < limit; i++) {
-    console.log(openModal(i))
+const nextPokemon = () => {
+  if(searchPokemon < maxRecords) {
+    searchPokemon += 1;
+    return openModal(searchPokemon)
+  }
+}
+
+const prevPokemon = () => {
+  if(searchPokemon < maxRecords && searchPokemon > offset) {
+    searchPokemon -= 1;
+    return openModal(searchPokemon)
   }
 }
